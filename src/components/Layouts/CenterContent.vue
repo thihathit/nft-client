@@ -124,9 +124,8 @@ $layout-sideGap: v-bind(layoutSideGap);
     overflow-x: hidden;
 }
 :global(#app) {
-    min-height: 100%;
     display: flex;
-    min-height: stretch;
+    min-height: 100%;
 }
 
 main {

@@ -83,7 +83,6 @@ $layout-sideGap: v-bind(layoutSideGap);
 }
 :global(#app) {
     min-height: 100%;
-    min-height: stretch;
     display: flex;
 }
 
