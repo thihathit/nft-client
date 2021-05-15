@@ -78,6 +78,7 @@ import NftVideo from "@/components/Elements/NftVideo.vue"
 
 .featured-bid {
     max-width: 1000px;
+    width: 100%;
     margin: 0 auto;
 
     display: grid;
