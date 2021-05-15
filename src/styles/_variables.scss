@@ -1,0 +1,37 @@
+// colors
+$base_color_1: #f8f8f8; // Body, Containers..
+$color_1: #242424; // default text, etc..
+$color_2: #555; // hovered link, button, etc..
+$color_3: #ddd; // disabled elements
+$color_4: #636262; // texts grey
+// $dorminant_1: #e6c523; // CTA buttons, etc..
+// $dorminant_1_rgb: 230, 197, 35;
+$dorminant_1: #2371e6; // CTA buttons, etc..
+$dorminant_1_rgb: 5, 113, 230;
+$dorminant_2: #fff;
+
+// font names
+$font-one: "Orkney";
+$font-two: "Padauk";
+
+@function fallback-fonts($preferFallback: false) {
+    $prefix: Helvetica, Arial;
+    $suffix: "Segoe UI", "Noto Sans Myanmar", "Myanmar Text", sans-serif;
+
+    @if ($preferFallback) {
+        @return $prefix, $preferFallback, $suffix;
+    } @else {
+        @return $prefix, $suffix;
+    }
+}
+
+:export {
+    base_color_1: $base_color_1;
+    color_1: $color_1;
+    color_2: $color_2;
+    color_3: $color_3;
+    color_4: $color_4;
+    dorminant_1: $dorminant_1;
+    dorminant_1_rgb: $dorminant_1_rgb;
+    dorminant_2: $dorminant_2;
+}

@@ -1,0 +1,31 @@
+{
+    "name": "nft-client",
+    "version": "0.0.0",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "serve": "yarn build && yarn preview",
+        "contract-build": "truffle compile && truffle migrate"
+    },
+    "dependencies": {
+        "@vueuse/core": "^4.11.0",
+        "axios": "^0.21.1",
+        "date-fns": "^2.21.3",
+        "es6-promise": "^4.2.8",
+        "ethers": "^5.0.31",
+        "minireset.css": "^0.0.7",
+        "vue": "^3.0.11",
+        "vue-router": "4",
+        "vuex": "^4.0.0"
+    },
+    "devDependencies": {
+        "@truffle/contract": "^4.3.16",
+        "@vitejs/plugin-vue": "^1.1.4",
+        "@vue/compiler-sfc": "^3.0.11",
+        "dotenv": "^9.0.2",
+        "sass": "^1.32.8",
+        "truffle": "^5.3.5",
+        "vite": "^2.2.4"
+    }
+}

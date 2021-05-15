@@ -1,0 +1,79 @@
+@import "./variables";
+@import "./mixins/fonts.scss";
+
+// DOC: @include font-face('<font name>', '<file path>', <font weight>, <font style>, <exts>);
+
+// $font-one;
+@include font-face($font-one, "/fonts/orkney/light", 300, normal, woff ttf eot);
+@include font-face(
+    $font-one,
+    "/fonts/orkney/regular",
+    400,
+    normal,
+    woff ttf eot
+);
+@include font-face(
+    $font-one,
+    "/fonts/orkney/medium",
+    500,
+    normal,
+    woff ttf eot
+);
+@include font-face($font-one, "/fonts/orkney/bold", 600, normal, woff ttf eot);
+
+/* font-family
+---------------------------------------------------------------*/
+html {
+    @include use-font();
+    font-display: swap;
+}
+input,
+textarea,
+option,
+select,
+button {
+    font: inherit;
+    font-display: inherit;
+    font-family: inherit;
+}
+/*=============================================================*/
+
+/* font-size
+---------------------------------------------------------------*/
+html {
+    font-size: 1em;
+}
+/*=============================================================*/
+
+/* font-weight
+---------------------------------------------------------------*/
+html {
+    font-weight: 400;
+}
+b,
+strong {
+    font-weight: 600;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+}
+/*=============================================================*/
+
+/* font-style
+---------------------------------------------------------------*/
+html {
+    font-style: normal;
+}
+/*=============================================================*/
+
+/* line-height
+---------------------------------------------------------------*/
+html {
+    line-height: normal;
+}
+/*=============================================================*/

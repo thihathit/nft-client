@@ -1,0 +1,168 @@
+@import "./variables";
+@import "./mixins/fonts.scss";
+@import "./mixins/virtuals.scss";
+
+.form-layouts {
+    &.basic {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-gap: 24px;
+    }
+}
+
+.form-actions {
+    display: flex;
+
+    & > * {
+        margin-right: 10px;
+    }
+    & > *:last-child {
+        margin-right: 0;
+    }
+}
+
+.field-controls {
+    &.centered {
+        text-align: center;
+
+        .field-elements {
+            button,
+            code,
+            textarea,
+            input {
+                text-align: inherit;
+            }
+
+            &.datepicker {
+            }
+
+            .virtual-input.file .handler {
+                text-align: center;
+
+                .control {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+
+        .field-messages:not(:first-child) {
+            margin-top: 8px;
+        }
+    }
+}
+
+.field-labels {
+    display: block;
+    margin-bottom: 8px;
+}
+
+// .field-elements {
+//     code,
+//     textarea,
+//     input:not([type="checkbox"]):not([type="radio"]) {
+//         width: 100%;
+//         display: block;
+//         color: inherit;
+//         padding: 12px 20px;
+//         border-radius: 10px;
+//         border: 2px solid var(--color_3);
+//         background-color: var(--color_5);
+
+//         transition: 0.3s border, 0.3s background-color, 0.3s border-radius;
+
+//         font-size: 1.25em;
+//         font-weight: 600;
+
+//         &::placeholder {
+//             font-weight: 400;
+//         }
+//     }
+
+//     textarea {
+//         min-width: 100%;
+//         max-width: 100%;
+//         height: 110px;
+
+//         font-size: 0.875em;
+//     }
+
+//     .virtual-input.file {
+//         .handler {
+//             display: grid;
+//             grid-template-columns: 100%;
+//             grid-gap: 8px;
+
+//             .control {
+//                 @include reset-button();
+//                 @include use-font($font-three);
+
+//                 width: 100%;
+//                 padding: 20px;
+//                 color: inherit;
+//                 border: 2px dashed var(--color_1);
+
+//                 border-radius: 10px;
+//                 background-color: var(--color_5);
+
+//                 > .inner {
+//                     max-width: 100%;
+//                     display: grid;
+//                     grid-template-columns: auto minmax(0, 1fr);
+//                     grid-gap: 14px;
+//                     align-items: center;
+//                 }
+
+//                 .icon {
+//                     width: 14px;
+
+//                     svg {
+//                         width: 100%;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+
+//     > button {
+//         @include drop-button();
+
+//         width: 100%;
+//         max-width: 300px;
+//         margin: 0 auto;
+//     }
+
+//     &.radio {
+//         &.radios {
+//             display: grid;
+//             grid-template-columns: repeat(3, minmax(0, 1fr));
+//             grid-gap: 11px;
+//         }
+
+//         input {
+//             display: none;
+//         }
+
+//         label {
+//             display: block;
+//             padding: 15px 1px;
+//             background-color: var(--color_5);
+//             border: 2px solid var(--color_3);
+//             border-radius: 10px;
+//             cursor: pointer;
+//             font-size: 1.25em;
+//         }
+
+//         input:checked ~ label {
+//             border-color: var(--dorminant_4);
+//             background-color: var(--dorminant_1);
+//         }
+//     }
+
+//     &.suffixed {
+//         display: grid;
+//         grid-template-columns: minmax(0, 1fr) auto;
+//         grid-gap: 10px;
+//         align-items: center;
+//     }
+// }

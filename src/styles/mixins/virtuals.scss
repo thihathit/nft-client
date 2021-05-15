@@ -1,0 +1,222 @@
+@import "./fonts.scss";
+
+@mixin x-prefixes() {
+    display: block;
+    content: " ";
+    position: absolute;
+}
+
+@mixin x-before() {
+    &:before {
+        @include x-prefixes();
+    }
+}
+
+@mixin x-after() {
+    &:after {
+        @include x-prefixes();
+    }
+}
+
+@mixin reset-button($block: true) {
+    @if $block {
+        display: block;
+    }
+
+    color: inherit;
+
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: inherit;
+}
+
+@mixin reset-input() {
+    display: block;
+    background: none;
+    border: none;
+}
+
+@mixin default-transition($properties, $duration: 0.3s) {
+    $values: null;
+
+    @each $property in $properties {
+        $values: append($values, $duration + " " + $property, comma);
+    }
+
+    transition: #{$values};
+}
+
+@mixin box-shadow-black($spread: 0, $hover: true) {
+    box-shadow: 0 10px 20px $spread rgb(0 0 0 / 5%);
+
+    @if $hover {
+        &:hover {
+            box-shadow: 0 10px 20px $spread rgb(0 0 0 / 10%);
+        }
+    }
+}
+
+@mixin box-shadow-1(
+    $spread: 0,
+    $hover: true,
+    $hoverOnly: false,
+    $initialAlpha: 0.4,
+    $hoverAlpha: 0.9
+) {
+    @if $hoverOnly == false {
+        box-shadow: 0
+            10px
+            20px
+            $spread
+            rgb(var(--dorminant_1_rgb), $initialAlpha);
+    }
+
+    @if $hover {
+        &:hover {
+            box-shadow: 0
+                10px
+                20px
+                $spread
+                rgb(var(--dorminant_1_rgb), $hoverAlpha);
+        }
+    }
+}
+
+@mixin drop-shadow-1(
+    $spread: 10px,
+    $hover: true,
+    $hoverOnly: false,
+    $initialAlpha: 0.4,
+    $hoverAlpha: 0.9
+) {
+    @if $hoverOnly == false {
+        filter: drop-shadow(
+            0 0 $spread rgb(var(--dorminant_1_rgb), $initialAlpha)
+        );
+    }
+
+    @if $hover {
+        &:hover {
+            filter: drop-shadow(
+                0 0 $spread rgb(var(--dorminant_1_rgb), $hoverAlpha)
+            );
+        }
+    }
+}
+
+@mixin drop-shadow-black(
+    $spread: 10px,
+    $hover: true,
+    $hoverOnly: false,
+    $initialAlpha: 0.4,
+    $hoverAlpha: 0.9
+) {
+    @if $hoverOnly == false {
+        filter: drop-shadow(0 0 $spread rgb(0, 0, 0, $initialAlpha));
+    }
+
+    @if $hover {
+        &:hover {
+            filter: drop-shadow(0 0 $spread rgb(0, 0, 0, $hoverAlpha));
+        }
+    }
+}
+
+@mixin featured-button-1() {
+    @include default-transition(color background-color box-shadow);
+
+    font-size: 0.8em;
+    font-weight: 500;
+
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+
+    background-color: var(--dorminant_1);
+    border-radius: 50px;
+    padding: 8px 18px;
+
+    @include box-shadow-1(-5px);
+}
+
+@mixin cta-button-1() {
+    @include default-transition(color background-color box-shadow);
+
+    font-size: 0.9em;
+    font-weight: 500;
+
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+
+    background-color: var(--dorminant_1);
+    border-radius: 10px;
+    padding: 15px 28px;
+
+    @include box-shadow-1(-5px);
+}
+
+@mixin cta-button-2() {
+    @include default-transition(color background-color box-shadow);
+
+    font-size: 0.9em;
+    font-weight: 500;
+
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    color: var(--dorminant_1);
+
+    background-color: var(--dorminant_2);
+    border-radius: 10px;
+    padding: 15px 28px;
+
+    border: 2px solid var(--dorminant_1);
+
+    @include box-shadow-1(-3px, true, true, 0, 0.3);
+}
+
+@mixin h2-normal($styled: false) {
+    font-size: 1.2em;
+    font-weight: 500;
+
+    color: var(--color_1);
+
+    @if $styled {
+        display: block;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid var(--color_4);
+
+        position: relative;
+        z-index: 0;
+
+        @include x-before();
+
+        padding-left: 20px;
+
+        &:before {
+            width: 10px;
+            height: 10px;
+            left: 0;
+            bottom: 50%;
+            transform: translateY(-50%);
+            background-color: red;
+            border-radius: 100%;
+
+            animation: blinkLight 2s linear 0s infinite;
+
+            @keyframes blinkLight {
+                50% {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}
