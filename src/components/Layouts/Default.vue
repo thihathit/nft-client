@@ -111,7 +111,7 @@ footer {
 }
 
 header {
-    background-color: inherit;
+    background-color: var(--base_color_1);
     backdrop-filter: blur(20px);
     padding: 30px 0;
 
