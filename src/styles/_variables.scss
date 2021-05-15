@@ -1,5 +1,6 @@
 // colors
 $base_color_1: #f8f8f8; // Body, Containers..
+$base_color_1_rgb: 248, 248, 248; // Body, Containers..
 $color_1: #242424; // default text, etc..
 $color_2: #555; // hovered link, button, etc..
 $color_3: #ddd; // disabled elements
@@ -27,6 +28,7 @@ $font-two: "Padauk";
 
 :export {
     base_color_1: $base_color_1;
+    base_color_1_rgb: $base_color_1_rgb;
     color_1: $color_1;
     color_2: $color_2;
     color_3: $color_3;
