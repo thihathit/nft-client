@@ -23,9 +23,16 @@
         "@truffle/contract": "^4.3.16",
         "@vitejs/plugin-vue": "^1.1.4",
         "@vue/compiler-sfc": "^3.0.11",
+        "autoprefixer": "^10.2.5",
         "dotenv": "^9.0.2",
         "sass": "^1.32.8",
         "truffle": "^5.3.5",
         "vite": "^2.2.4"
+    },
+    "postcss": {
+        "map": false,
+        "plugins": {
+            "autoprefixer": {}
+        }
     }
 }
