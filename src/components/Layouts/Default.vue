@@ -111,7 +111,7 @@ footer {
 }
 
 header {
-    background-color: var(--base_color_1);
+    background-color: rgb(var(--base_color_1_rgb), 0.8);
     backdrop-filter: blur(20px);
     padding: 30px 0;
 
