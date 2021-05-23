@@ -46,6 +46,14 @@
     }
 
     transition: #{$values};
+
+    will-change: contents;
+}
+
+@mixin use-hardware-acceleration() {
+    // Force hardware rendering
+    // via 3d transform
+    transform: translate3d(0, 0, 0);
 }
 
 @mixin box-shadow-black($spread: 0, $hover: true) {

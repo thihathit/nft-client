@@ -5,6 +5,7 @@
                 :w="3"
                 :h="1"
                 source="https://ipfs.io/ipfs/QmPbFnwK9yekuGNT84EWHJsxCpv7FBN7qhiF9AZFwLKaNG/nft.mp4"
+                cover="https://d2ybmb80bbm9ts.cloudfront.net/Ka/NG/QmPbFnwK9yekuGNT84EWHJsxCpv7FBN7qhiF9AZFwLKaNG/nft.jpg"
             />
         </article>
 
@@ -90,7 +91,9 @@ import NftVideo from "@/components/Elements/NftVideo.vue"
 .auction-product .nft-video {
     min-height: 100%;
 
-    @include drop-shadow-black(30px, false, false, 0.3);
+    :deep(video) {
+        @include drop-shadow-black(30px, false, false, 0.3);
+    }
 }
 
 .info {

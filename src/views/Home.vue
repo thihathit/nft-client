@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import Layout from "@/components/Layouts/DefaultCenterContent.vue"
+import Layout from "@/components/Layouts/Default.vue"
 import FeaturedBid from "@/components/Blocks/FeaturedBid.vue"
 import UpcomingAuctions from "@/components/Blocks/UpcomingAuctions.vue"
 </script>

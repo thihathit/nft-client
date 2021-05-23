@@ -1,8 +1,11 @@
 <template>
     <div :class="['layouts layout-default', pageClass]">
-        <header id="header" :class="{ active: isScrolled }">
+        <header
+            id="header"
+            :class="{ active: isScrolled, style2: isMedium || isSmall }"
+        >
             <div class="inner">
-                <MainNavigation />
+                <MainNavigation :isMedium="isMedium" :isSmall="isSmall" />
             </div>
         </header>
 
@@ -11,8 +14,10 @@
         </section>
 
         <main v-if="slots.content || slots.default" id="content" class="padded">
-            <slot name="content" />
-            <slot />
+            <div class="inner">
+                <slot name="content" />
+                <slot />
+            </div>
         </main>
 
         <section v-if="slots.lowlight" id="lowlight">
@@ -27,12 +32,13 @@
 
 <script setup>
 import { computed, defineProps, useContext } from "vue"
-import { useWindowScroll } from "@vueuse/core"
+import { useWindowScroll, useWindowSize } from "@vueuse/core"
 
-import MainNavigation from "@/components/Blocks/MainNavigation.vue"
+import MainNavigation from "@/components/Blocks/MainNavigation/index.vue"
 
 const { slots } = useContext()
 
+const viewport = useWindowSize()
 const { y: winScrollY } = useWindowScroll()
 
 const props = defineProps({
@@ -50,6 +56,8 @@ const props = defineProps({
 })
 
 const isScrolled = computed(() => winScrollY.value > 0)
+const isSmall = computed(() => viewport.width.value <= 850)
+const isMedium = computed(() => !isSmall.value && viewport.width.value < 1240)
 
 const pageClass = computed(() => {
     if (props.pageName) return `page-${props.pageName}`
@@ -82,27 +90,33 @@ $layout-sideGap: v-bind(layoutSideGap);
     overflow-x: hidden;
 }
 :global(#app) {
-    min-height: 100%;
     display: flex;
+    min-height: 100%;
+}
+
+main {
+    display: flex;
+    align-items: center;
+
+    .inner {
+        @include center-content();
+    }
+
+    > * {
+        width: 100%;
+    }
 }
 
 .layouts {
     width: 100%;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 1fr auto;
     min-height: 100%;
     min-height: stretch;
-
-    position: relative;
-    z-index: 0;
 }
 .layouts > * {
     width: 100%;
-}
-
-main {
-    @include center-content();
 }
 
 footer {
@@ -119,6 +133,8 @@ header {
     top: 0;
     left: 0;
 
+    @include use-hardware-acceleration();
+
     @include default-transition(box-shadow padding);
 
     &.active {
@@ -128,6 +144,10 @@ header {
 
     .inner {
         @include center-content();
+    }
+
+    &.style2 {
+        padding: 20px 0;
     }
 }
 
