@@ -1,5 +1,12 @@
 <template>
-    <section class="nft-video">
+    <section
+        :class="[
+            'nft-video',
+            {
+                'use-ratio': props.useRatio,
+            },
+        ]"
+    >
         <article
             :class="{
                 loading_data: state.loading_data,
@@ -52,6 +59,10 @@ const props = defineProps({
         type: Number,
         default: 0,
     },
+    useRatio: {
+        type: Boolean,
+        default: false,
+    },
     source: {
         type: String,
         required: true,
@@ -95,7 +106,7 @@ loadImage(props.source, {
     z-index: 0;
 
     .container {
-        position: absolute;
+        position: relative;
         z-index: 0;
         left: 0;
         top: 0;
@@ -121,7 +132,7 @@ loadImage(props.source, {
 
     video {
         width: 100%;
-        height: 100%;
+        height: auto;
     }
 
     .loader {
@@ -132,6 +143,26 @@ loadImage(props.source, {
         height: 0;
         width: 100%;
         pointer-events: none;
+
+        display: none;
+    }
+
+    &.use-ratio {
+        .container {
+            position: absolute;
+            z-index: 0;
+            left: 0;
+            top: 0;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+        }
+
+        .ratio {
+            display: block;
+        }
     }
 }
 </style>

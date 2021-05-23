@@ -16,7 +16,9 @@ import FeaturedBid from "@/components/Blocks/FeaturedBid.vue"
 import UpcomingAuctions from "@/components/Blocks/UpcomingAuctions.vue"
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "@/styles/mixins/media-queries.scss";
+
 :global(body) {
     background-color: var(--base_color_1);
 }
@@ -29,5 +31,9 @@ import UpcomingAuctions from "@/components/Blocks/UpcomingAuctions.vue"
 
 .featured-bid {
     padding: 100px 0;
+
+    @include screen-max(1000) {
+        padding: 30px 0;
+    }
 }
 </style>
