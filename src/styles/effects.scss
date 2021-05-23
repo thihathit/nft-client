@@ -8,10 +8,28 @@
         opacity: 0;
     }
 }
+.mobile-nav-effect {
+    &-leave-active,
+    &-enter-active {
+        transition: opacity 0.3s;
+
+        .inner {
+            transition: transform 0.3s;
+        }
+    }
+    &-enter-from,
+    &-leave-to {
+        opacity: 0;
+
+        .inner {
+            transform: scale(1.1);
+        }
+    }
+}
 .page-effect {
     &-leave-active,
     &-enter-active {
-        transition: opacity 0.15s;
+        transition: opacity 0.3s;
     }
     &-enter-from,
     &-leave-to {

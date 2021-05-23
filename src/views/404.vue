@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import Layout from "@/components/Layouts/DefaultCenterContent.vue"
+import Layout from "@/components/Layouts/Default.vue"
 </script>
 
 <style scoped>
