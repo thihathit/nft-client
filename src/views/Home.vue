@@ -33,7 +33,8 @@ import UpcomingAuctions from "@/components/Blocks/UpcomingAuctions.vue"
     padding: 100px 0;
 
     @include screen-max(1000) {
-        padding: 30px 0;
+        padding: 0;
+        padding-top: 20px;
     }
 }
 </style>
