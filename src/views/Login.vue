@@ -1,25 +1,31 @@
 <template>
     <Layout pageName="login">
         <transition name="dom-effect-fade" mode="out-in">
-            <div v-if="!state.installed">
-                <a href="https://metamask.io">Please install wallet</a>
+            <div>
+                <a v-if="!state.installed" href="https://metamask.io"
+                    >Please install wallet</a
+                >
+
+                <button
+                    v-else-if="!state.connected"
+                    @click.prevent="connectWallet"
+                    :disabled="state.connecting"
+                >
+                    Connect wallet
+                </button>
             </div>
-            <button
-                v-else-if="!state.connected"
-                @click.prevent="connectWallet"
-                :disabled="state.connecting"
-            >
-                Connect wallet
-            </button>
         </transition>
     </Layout>
 </template>
 
 <script setup>
+// Components
 import Layout from "@/components/Layouts/CenterContent.vue"
 
+// Actions
 import actionAuth from "@/actions/Auth"
 
+// Hooks
 import useWallet from "@/hooks/useWallet"
 
 const { redirectDestination } = actionAuth()

@@ -23,8 +23,14 @@
             </div>
 
             <div class="items">
-                <router-link to="/login" class="highlighted"
+                <router-link
+                    v-if="!walletState.connected"
+                    to="/login"
+                    class="highlighted"
                     >Sign In</router-link
+                >
+                <router-link to="/profile" v-else class="highlighted"
+                    >Profile</router-link
                 >
             </div>
         </nav>
@@ -35,15 +41,18 @@
 import { defineEmit, onActivated, onDeactivated } from "vue"
 
 // Components
-import Modal from "@/components/Elements/Modal/index.vue"
+import Modal from "@/components/Elements/Modal/ModalDefault.vue"
 
 // Assets
 import Back from "@/components/Assets/Back.vue"
 
 // Hooks
 import useDom from "@/hooks/useDom"
+import useWallet from "@/hooks/useWallet"
 
 const { bodyScrollHide, bodyScrollShow } = useDom()
+
+const { state: walletState } = useWallet()
 
 const emit = defineEmit(["close"])
 

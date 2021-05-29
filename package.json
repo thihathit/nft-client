@@ -6,7 +6,9 @@
         "build": "vite build",
         "preview": "vite preview",
         "serve": "yarn build && yarn preview",
-        "contract-build": "truffle compile && truffle migrate"
+        "contract:build": "truffle compile && truffle migrate",
+        "contract:deploy:dev": "yarn contract:build && truffle deploy --network development",
+        "contract:console:dev": "truffle console --network development"
     },
     "dependencies": {
         "@vueuse/core": "^4.11.0",
