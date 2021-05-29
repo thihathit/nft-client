@@ -23,7 +23,7 @@
 <script setup>
 import { defineProps } from "vue"
 
-import ModalPlain from "@/components/Elements/Modal/Plain.vue"
+import ModalPlain from "@/components/Elements/Modal/ModalPlain.vue"
 
 const emit = defineEmit(["blur"])
 

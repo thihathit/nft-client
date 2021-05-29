@@ -4,6 +4,7 @@ import { getAppTitle } from "@/utilities"
 
 // Sync Pages
 import Home from "@/views/Home.vue"
+import Profile from "@/views/Profile.vue"
 import PageNotFound from "@/views/404.vue"
 import Login from "@/views/Login.vue"
 // import Logout from "@/views/Logout.vue"
@@ -21,6 +22,17 @@ const routes = [
         meta: {
             title: getAppTitle({
                 title: "Home",
+            }),
+        },
+    },
+    {
+        path: "/profile",
+        name: "profile",
+        component: Profile,
+        meta: {
+            auth: true,
+            title: getAppTitle({
+                title: "Profile",
             }),
         },
     },

@@ -34,7 +34,7 @@
 import { computed, defineProps, useContext } from "vue"
 import { useWindowScroll, useWindowSize } from "@vueuse/core"
 
-import MainNavigation from "@/components/Blocks/MainNavigation/index.vue"
+import MainNavigation from "@/components/Blocks/MainNavigation/MainNavigationContainer.vue"
 
 const { slots } = useContext()
 

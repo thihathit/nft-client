@@ -1,18 +1,9 @@
-import { reactive } from "vue"
-import { providers } from "ethers"
+import storage from "@contracts/Storage.json"
 
-const Node = import.meta.env.VITE_ETHER_NODE
+export const NetworkID = import.meta.env.VITE_ETHER_NETWORK_ID
 
-export const defaultState = {
-    ready: false,
+export const Contracts = {
+    storage,
 }
 
-export const state = reactive(defaultState)
-
-export const init = async () => {
-    const Provider = new providers.JsonRpcProvider(Node)
-
-    const Signer = Provider.getSigner()
-    const Block = await Provider.getBlockNumber()
-    // console.log(Block)
-}
+export const init = async () => {}

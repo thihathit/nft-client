@@ -24,8 +24,14 @@
 
                     <router-link to="/contact-us">Contact Us</router-link>
 
-                    <router-link to="/login" class="highlighted"
+                    <router-link
+                        v-if="!walletState.connected"
+                        to="/login"
+                        class="highlighted"
                         >Sign In</router-link
+                    >
+                    <router-link to="/profile" v-else class="highlighted"
+                        >Profile</router-link
                     >
                 </nav>
             </article>
@@ -78,8 +84,14 @@
                 <nav class="actions">
                     <router-link to="/contact-us">Contact Us</router-link>
 
-                    <router-link to="/login" class="highlighted"
+                    <router-link
+                        v-if="!walletState.connected"
+                        to="/login"
+                        class="highlighted"
                         >Sign In</router-link
+                    >
+                    <router-link to="/profile" v-else class="highlighted"
+                        >Profile</router-link
                     >
                 </nav>
             </article>
@@ -107,6 +119,11 @@ import SearchBox from "./SearchBox.vue"
 
 // Assets
 import ThreeBars from "@/components/Assets/ThreeBars.vue"
+
+// Hooks
+import useWallet from "@/hooks/useWallet"
+
+const { state: walletState } = useWallet()
 
 const props = defineProps({
     isMedium: {
